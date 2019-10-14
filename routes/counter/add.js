@@ -1,4 +1,5 @@
 const Counter = require('../../models/counter');
+const format = require('date-format');
 
 exports.post = function (req, res) {
     try {
@@ -6,7 +7,7 @@ exports.post = function (req, res) {
         newCounter.type = req.body.type;
         newCounter.place = req.body.place;
         newCounter.data = req.body.data;
-        newCounter.date_completion = new Date();
+        newCounter.date_completion = format('dd.MM.yyyy', new Date());;
         newCounter.user_id = req.user._id;
 
         newCounter.save();
