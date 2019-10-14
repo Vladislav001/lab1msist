@@ -14,6 +14,16 @@
                     <th scope="col">Дата заполнения</th>
                 </tr>
                 </thead>
+
+                <% for (var i=0; i< counters.length; i++) { %>
+                <tbody>
+                <th scope="row"><%=i+1%></th>
+                <td><a href="/example/id<%=counters[i].id%>"><%=counters[i].type%></a></td>
+                <td><%=counters[i].place%></td>
+                <td><%=counters[i].data%></td>
+                <td><%=counters[i].date_completion%></td>
+                </tbody>
+                <% } %>
             </table>
         </div>
 
@@ -59,18 +69,19 @@
         newData.type = document.querySelector("#type").value;
         newData.place = document.querySelector("#place").value;
         newData.data = document.querySelector("#data").value;
-        console.log(newData);
-        // $.ajax({
-        //     type: 'POST',
-        //     url: '/add-counter',
-        //     dataType: 'json',
-        //     data: newData,
-        //     success: function () {
-        //         location.reload();
-        //     },
-        //     error: function () {
-        //         location.reload();
-        //     }
-        // });
+
+        $.ajax({
+            type: 'POST',
+            url: '/add-counter',
+            dataType: 'json',
+            data: newData,
+            success: function (data) {
+                //alert(data.message);
+                location.reload();
+            },
+            error: function () {
+                location.reload();
+            }
+        });
     }
 </script>

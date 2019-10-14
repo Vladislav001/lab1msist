@@ -5,8 +5,10 @@ exports.get = async function (req, res) {
         let counters = await Counter.find({});
 
         res.render('profile', {
-            counters: counters
+            counters: counters,
+            user: req.user
         });
+
     } catch (err) {
         throw err;
     }
