@@ -4,10 +4,11 @@ const format = require('date-format');
 exports.post = function (req, res) {
     try {
         let newCounter = new Counter();
+        newCounter.number = req.body.number;
         newCounter.type = req.body.type;
         newCounter.place = req.body.place;
         newCounter.data = req.body.data;
-        newCounter.date_completion = format('dd.MM.yyyy', new Date());;
+        newCounter.date_completion = format('dd.MM.yyyy', new Date());
         newCounter.user_id = req.user._id;
 
         newCounter.save();

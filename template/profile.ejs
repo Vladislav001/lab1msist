@@ -8,6 +8,7 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Номер счетчика</th>
                     <th scope="col">Счетчик</th>
                     <th scope="col">Место</th>
                     <th scope="col">Показания</th>
@@ -18,7 +19,9 @@
                 <% for (var i=0; i< counters.length; i++) { %>
                 <tbody>
                 <th scope="row"><%=i+1%></th>
-                <td><a href="/example/id<%=counters[i].id%>"><%=counters[i].type%></a></td>
+                <td><%=counters[i].number%></td>
+<!--                <td><a href="/example/id<%=counters[i].id%>"><%=counters[i].type%></a></td>-->
+                <td><%=counters[i].type%></td>
                 <td><%=counters[i].place%></td>
                 <td><%=counters[i].data%></td>
                 <td><%=counters[i].date_completion%></td>
@@ -30,6 +33,10 @@
         <div class="col">
             <form>
                 <fieldset>
+                    <div class="form-group">
+                        <label for="number">Номер счетчика</label>
+                        <input type="number" id="number" class="form-control" placeholder="Номер счетчика" required min="1">
+                    </div>
                     <div class="form-group">
                         <label for="name">Счетчик</label>
                         <select class="form-control" id="type">
@@ -66,6 +73,7 @@
         event.preventDefault();
 
         var newData = {};
+        newData.number = document.querySelector("#number").value;
         newData.type = document.querySelector("#type").value;
         newData.place = document.querySelector("#place").value;
         newData.data = document.querySelector("#data").value;

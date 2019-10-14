@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const counterSchema = mongoose.Schema({
+    number: {
+        type: Number,
+        required: true // номер счетчика
+    },
     type: {
         type: String,
         required: true // водяной/газовый
