@@ -55,7 +55,7 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', isAuthenticated, require('./profile').get);
+    router.get('/profile', require('./profile').get);
 
 
 ////**** API ****\\\\
