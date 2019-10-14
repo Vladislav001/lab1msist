@@ -56,7 +56,7 @@ module.exports = function (passport) {
     });
 
     router.get('/profile', require('./profile').get);
-
+    router.post('/add-counter', require('./counter/add').post);
 
 ////**** API ****\\\\
 

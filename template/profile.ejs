@@ -8,8 +8,10 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Названия</th>
-                    <th scope="col"></th>
+                    <th scope="col">Счетчик</th>
+                    <th scope="col">Место</th>
+                    <th scope="col">Показания</th>
+                    <th scope="col">Дата заполнения</th>
                 </tr>
                 </thead>
             </table>
@@ -21,18 +23,17 @@
                     <div class="form-group">
                         <label for="name">Счетчик</label>
                         <select class="form-control" id="type">
-                            <option value="water">Водяной</option>
-                            <option value="gas">Газовый</option>
+                            <option value="Водяной">Водяной</option>
+                            <option value="Газовый">Газовый</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="type">Место</label>
                         <select class="form-control" id="place">
-                            <option value="kitchen">Кухня</option>
-                            <option value="bathroom">Ванная</option>
-                            <option value="room_1">Комната 1</option>
-                            <option value="room_2">Комната 2</option>
-                            <option value="room_3">Комната 3</option>
+                            <option value="Кухня">Кухня</option>
+                            <option value="Ванная">Ванная</option>
+                            <option value="Комната 1">Комната 1</option>
+                            <option value="Комната 2">Комната 2</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -58,18 +59,18 @@
         newData.type = document.querySelector("#type").value;
         newData.place = document.querySelector("#place").value;
         newData.data = document.querySelector("#data").value;
-
-        $.ajax({
-            type: 'POST',
-            url: '/add-counter',
-            dataType: 'json',
-            data: newData,
-            success: function () {
-                location.reload();
-            },
-            error: function () {
-                location.reload();
-            }
-        });
+        console.log(newData);
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/add-counter',
+        //     dataType: 'json',
+        //     data: newData,
+        //     success: function () {
+        //         location.reload();
+        //     },
+        //     error: function () {
+        //         location.reload();
+        //     }
+        // });
     }
 </script>
