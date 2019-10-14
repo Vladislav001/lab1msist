@@ -13,6 +13,10 @@ const userSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    type: {
+        type: String,
+        required: true // дом/квартира
+    },
     token: {
         type: String,
     }

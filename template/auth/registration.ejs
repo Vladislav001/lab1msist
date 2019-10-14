@@ -6,11 +6,6 @@
         <div class="col col-md-8 col-lg-6">
             <form action="/signUp" method="POST">
                 <div class="form-group">
-                    <label for="number">Почта</label>
-                    <input type="number" name="account_number" class="form-control" id="account_number"
-                           placeholder="Номер лицевого счета" required min="1">
-                </div>
-                <div class="form-group">
                     <label for="email">Почта</label>
                     <input type="email" name="username" class="form-control" id="email" placeholder="Почта" required>
                 </div>
@@ -18,6 +13,18 @@
                     <label for="password">Пароль</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Пароль"
                            required>
+                </div>
+                <div class="form-group">
+                    <label for="number">Номер лицевого счета</label>
+                    <input type="number" name="account_number" class="form-control" id="account_number"
+                           placeholder="Номер лицевого счета" required min="1">
+                </div>
+                <div class="form-group">
+                    <label for="type">Жилье</label>
+                    <select class="form-control" id="type" name="type">
+                        <option value="Дом">Дом</option>
+                        <option value="Квартира">Квартира</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                 <h6 class="text-right"><a href="/">Вход</a></h6>

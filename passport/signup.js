@@ -9,6 +9,7 @@ module.exports = function (passport) {
   },
     function (req, email, password, done) {
       let accountNumber = req.body.account_number;
+      let type = req.body.type;
 
       findOrCreateUser = function () {
 
@@ -28,6 +29,7 @@ module.exports = function (passport) {
             newUser.email = email;
             newUser.password = createHash(password);
             newUser.account_number = accountNumber;
+            newUser.type = type;
 
             newUser.save(function (err) {
               if (err) {
