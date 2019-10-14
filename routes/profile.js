@@ -4,7 +4,7 @@ exports.get = async function (req, res) {
     try {
         let counters = await Counter.find({});
 
-        res.render('counters', {
+        res.render('profile', {
             counters: counters
         });
     } catch (err) {

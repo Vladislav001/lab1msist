@@ -8,24 +8,26 @@ module.exports = function (passport) {
     passReqToCallback: true // allows us to pass back the entire request to the callback
   },
     function (req, email, password, done) {
+      let accountNumber = req.body.account_number;
 
       findOrCreateUser = function () {
 
-        User.findOne({ 'email': email }, function (err, user) {
+        User.findOne({'account_number': accountNumber }, function (err, user) {
           if (err) {
             console.log('Error in SignUp: ' + err);
             return done(err);
           }
 
           if (user) {
-            console.log('User already exists with email: ' + email);
-            return done(null, false, req.flash('message', 'Пользователь уже существует с этим email'));
+            console.log('User already exists with account number: ' + accountNumber);
+            return done(null, false, req.flash('message', 'Пользователь уже существует с этим номером счета'));
           } else {
 
             let newUser= new User();
 
             newUser.email = email;
             newUser.password = createHash(password);
+            newUser.account_number = accountNumber;
 
             newUser.save(function (err) {
               if (err) {

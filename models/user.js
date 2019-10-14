@@ -9,6 +9,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    account_number: {
+        type: Number,
+        required: true
+    },
     token: {
         type: String,
     }

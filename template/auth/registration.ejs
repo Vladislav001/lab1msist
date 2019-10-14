@@ -6,6 +6,11 @@
         <div class="col col-md-8 col-lg-6">
             <form action="/signUp" method="POST">
                 <div class="form-group">
+                    <label for="number">Почта</label>
+                    <input type="number" name="account_number" class="form-control" id="account_number"
+                           placeholder="Номер лицевого счета" required min="1">
+                </div>
+                <div class="form-group">
                     <label for="email">Почта</label>
                     <input type="email" name="username" class="form-control" id="email" placeholder="Почта" required>
                 </div>
