@@ -13,7 +13,7 @@ exports.post = function (req, res) {
 
         newCounter.save();
 
-        res.status(200).json({
+        res.status(201).json({
             "message": 'Данные успешно добавлены'
         });
     } catch (err) {

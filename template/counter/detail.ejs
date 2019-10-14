@@ -1,0 +1,33 @@
+<% layout ('../layout/pattern') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label for="number">Номер счетчика</label>
+                        <input type="number" id="number" class="form-control" value="<%=counter.number%>" placeholder="Номер счетчика" required min="1" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Счетчик</label>
+                        <select class="form-control" id="type" disabled>
+                            <option value="<%=counter.type%>"><%=counter.type%></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Место</label>
+                        <select class="form-control" id="place" disabled>
+                            <option value="<%=counter.place%>"><%=counter.place%></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Показания</label>
+                        <input type="text" id="data" class="form-control" value="<%=counter.data%>" placeholder="Показания" required disabled>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
