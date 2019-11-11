@@ -17,6 +17,12 @@ exports.get = async function (req, res) {
             let counters = await Counter.find({user_id: res.userId});
             res.status(200).json(counters);
         }
+        else
+        {
+            // например под инкогнито в браузере
+            let counters = await Counter.find({});
+            res.status(200).json(counters);
+        }
 
     } catch (err) {
         throw err;

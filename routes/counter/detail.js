@@ -20,6 +20,11 @@ exports.get = async function (req, res) {
             // через токен
             res.status(200).json(counter);
         }
+        else
+        {
+            // например под инкогнито в браузере
+            res.status(200).json(counter);
+        }
 
     } catch (err) {
         throw err;
