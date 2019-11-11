@@ -1,4 +1,4 @@
-const Counter = require('../../models/counter');
+const Counter = require('../models/counter');
 
 exports.get = async function (req, res) {
     try {
