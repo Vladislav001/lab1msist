@@ -55,12 +55,14 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', require('./profile').get); // с views
-    router.get('/counter-detail/:id', require('./counter/detail').get); // с views
+    router.get('/profile', require('./profile').get);
+    router.post('/add-counter', require('./counter/add').post);
+    router.get('/counter/:id', require('./counter/detail').get);
 
-    router.get('/counters', require('./counter/list').get); // просто get
-    router.post('/add-counter', require('./counter/add').post); // просто post
-    router.get('/counter/:id', require('./counter/detail').get); // просто get
+
+    //router.get('/counter-detail/:id', require('./counter/detail').get); // с views
+    //router.get('/counters', require('./counter/list').get); // просто get
+
 
 ////**** API ****\\\\
 
