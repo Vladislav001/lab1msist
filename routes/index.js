@@ -55,7 +55,7 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', isAuthenticated, require('./profile').get); // с views
+    router.get('/profile', require('./profile').get); // с views
     router.get('/counter-detail/:id', require('./counter/detail').get); // с views
 
     router.get('/counters', require('./counter/list').get); // просто get
