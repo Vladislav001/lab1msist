@@ -9,7 +9,15 @@ exports.post = function (req, res) {
         newCounter.place = req.body.place;
         newCounter.data = req.body.data;
         newCounter.date_completion = format('dd.MM.yyyy', new Date());
-        newCounter.user_id = req.user._id;
+
+        if(req.user != undefined) {
+            newCounter.user_id = req.user._id;
+        }
+        else
+        {
+            // через токен
+            newCounter.user_id = '???'
+        }
 
         newCounter.save();
 
