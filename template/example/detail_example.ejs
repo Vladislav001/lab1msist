@@ -22,6 +22,20 @@
     </div>
 </div>
 
+<script>
+    $.ajax({
+        type: 'POST',
+        url: '/counter/id<%= example.id %>',
+        dataType: 'json',
+        data: updateExample,
+        success: function () {
+            location.reload();
+        },
+        error: function () {
+            location.reload();
+        }
+    });
+</script>
 
 <script>
     var formExample = document.getElementById("form_example");

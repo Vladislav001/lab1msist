@@ -3,19 +3,21 @@ const Counter = require('../../models/counter');
 exports.get = async function (req, res) {
     try {
 
-        let counters = '';
-
         if(req.user != undefined)
         {
-            counters = await Counter.find({user_id: req.user._id});
+            let counters = await Counter.find({user_id: req.user._id});
+            res.render('profile', {
+                counters: counters,
+                user: req.user
+            });
         }
         else
         {
             // через токен
-            counters = await Counter.find({});
+            let counters = await Counter.find({});
+            res.status(200).json(counters);
         }
 
-        res.status(200).json(counters);
     } catch (err) {
         throw err;
     }

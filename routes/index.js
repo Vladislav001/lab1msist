@@ -56,7 +56,7 @@ module.exports = function (passport) {
     });
 
     router.get('/profile', isAuthenticated, require('./profile').get); // с views
-    router.get('/counter-detail/:id', require('./counter/detail').get);
+    router.get('/counter-detail/:id', require('./counter/detail').get); // с views
 
     router.get('/counters', require('./counter/list').get); // просто get
     router.post('/add-counter', require('./counter/add').post); // просто post
