@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const swaggerJSDoc = require('swagger-jsdoc');
 const isAuthenticated = require('../middleware/is_authenticated');
+const verifyToken = require('../middleware/verify_token');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -55,10 +56,13 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', require('./profile').get);
-    router.post('/add-counter', require('./counter/add').post);
-    router.get('/counter/:id', require('./counter/detail').get);
+    router.get('/profile', verifyToken, require('./profile').get);
+    router.post('/add-counter', verifyToken, require('./counter/add').post);
+    router.get('/counter/:id', verifyToken, require('./counter/detail').get);
 
+
+    router.post('/user/registration', require('./user/registration').post);
+    router.post('/user/login', require('./user/login').post);
 
     //router.get('/counter-detail/:id', require('./counter/detail').get); // с views
     //router.get('/counters', require('./counter/list').get); // просто get

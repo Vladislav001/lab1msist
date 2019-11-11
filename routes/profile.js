@@ -11,10 +11,10 @@ exports.get = async function (req, res) {
                 user: req.user
             });
         }
-        else
+        else if(res.userId)
         {
             // через токен
-            let counters = await Counter.find({});
+            let counters = await Counter.find({user_id: res.userId});
             res.status(200).json(counters);
         }
 

@@ -13,10 +13,10 @@ exports.post = function (req, res) {
         if(req.user != undefined) {
             newCounter.user_id = req.user._id;
         }
-        else
+        else if(res.userId)
         {
             // через токен
-            newCounter.user_id = '???'
+            newCounter.user_id = res.userId;
         }
 
         newCounter.save();
