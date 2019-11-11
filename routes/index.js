@@ -55,10 +55,11 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', isAuthenticated, require('./profile').get);
+    router.get('/profile', isAuthenticated, require('./profile').get); // с views
 
 
-    router.get('/counters', require('./counter/list').get);
+    router.get('/counters', require('./counter/list').get); // просто get
+
     router.post('/add-counter', require('./counter/add').post);
     router.get('/counter/:id', require('./counter/detail').get);
 
