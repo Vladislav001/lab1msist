@@ -2,9 +2,9 @@ const Counter = require('../../models/counter');
 
 exports.get = async function (req, res) {
     try {
-        res.render('counter/detail', {
-            user: req.user
-        });
+        let counter = await Counter.findOne({ _id: req.params.id });
+
+        res.status(200).json(counter);
     } catch (err) {
         throw err;
     }
