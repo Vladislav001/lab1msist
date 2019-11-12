@@ -22,7 +22,8 @@ exports.post = function (req, res) {
         newCounter.save();
 
         res.status(201).json({
-            "message": 'Данные успешно добавлены'
+            "message": 'Данные успешно добавлены',
+            "data": req.body
         });
     } catch (err) {
         res.status(403).json({
