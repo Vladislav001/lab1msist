@@ -13,7 +13,7 @@ const counterSchema = mongoose.Schema({
         type: String, // ванная, кухня, комната
     },
     data: {
-        type: String // сумма
+        type: Number // сумма
     },
     date_completion: {
         type: String,
