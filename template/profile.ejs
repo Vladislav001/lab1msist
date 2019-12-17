@@ -79,9 +79,9 @@
                     </div>
                     <div class="form-group">
                         <label for="data">Показания</label>
-                        <input type="number" id="data" class="form-control" placeholder="Показания" min="0" required>
+                        <input type="number" id="data" class="form-control" placeholder="Показания" min="0" value="0" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Отправить</button>
+                    <button type="submit" class="btn btn-primary" disabled>Отправить</button>
                 </fieldset>
             </form>
         </div>
@@ -116,4 +116,49 @@
             }
         });
     }
+
+
+    class Observable {
+        // каждый экземпляр класса Observer
+        // начинается с пустого массива элементов (наблюдателей)
+        // которые реагируют на изменение состояния
+        constructor() {
+            this.observers = [];
+        }
+
+        // Добавление возможность подписаться на новый объект / элемент DOM
+        // по сути добавление чего-либо к массиву наблюдателей
+        subscribe(f) {
+            this.observers.push(f);
+        }
+
+        // Добавление возможности отписаться от наблюдения за объектом
+        unsubscribe(f) {
+            this.observers = this.observers.filter(subscriber => subscriber !== f);
+        }
+
+        // Обновление всех подписанных объекты / DOM элементов
+        // и передача соответствующих данных каждому из них
+        notify(data) {
+            this.observers.forEach(observer => observer(data));
+        }
+    }
+
+    // связь с DOM элементами
+    const input = document.querySelector('input');
+    const send = document.querySelector('.btn');
+
+    // Действия для добавления в массив наблюдателей
+   const updateSend = text => send.removeAttribute("disabled");
+
+    // Создание нового класса Observer
+    const headingsObserver = new Observable();
+
+    // Подписка наблюдателей
+    headingsObserver.subscribe(updateSend);
+
+    // Уведомить наблюдателей о новых данных по событию
+    input.addEventListener('keyup', e => {
+        headingsObserver.notify(e.target.value);
+    });
 </script>
