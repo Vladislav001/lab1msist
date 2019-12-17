@@ -12,9 +12,7 @@ const app = express();
 require('dotenv').config();
 
 // connect to DB
-//mongoose.connect('mongodb://admin:123456v@ds155606.mlab.com:55606/repair-assistant', {useNewUrlParser: true});
 mongoose.connect('mongodb+srv://admin:123456v@cluster0-4s0wo.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
-
 
 mongoose.set('useFindAndModify', false);
 

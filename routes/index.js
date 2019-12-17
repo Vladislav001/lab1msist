@@ -56,16 +56,17 @@ module.exports = function (passport) {
         res.redirect('/');
     });
 
-    router.get('/profile', verifyToken, require('./profile').get);
-    router.post('/add-counter', verifyToken, require('./counter/add').post);
-    router.get('/counter/:id', verifyToken, require('./counter/detail').get);
+    // router.get('/profile', verifyToken, require('./profile').get);
+    // router.post('/add-counter', verifyToken, require('./counter/add').post);
+    // router.get('/counter/:id', verifyToken, require('./counter/detail').get);
 
+    router.get('/profile', isAuthenticated, require('./profile').get);
+    router.post('/add-counter', isAuthenticated, require('./counter/add').post);
+    router.get('/counter/:id', isAuthenticated, require('./counter/detail').get);
 
     router.post('/user/registration', require('./user/registration').post);
     router.post('/user/login', require('./user/login').post);
 
-    //router.get('/counter-detail/:id', require('./counter/detail').get); // с views
-    //router.get('/counters', require('./counter/list').get); // просто get
 
 
 ////**** API ****\\\\
