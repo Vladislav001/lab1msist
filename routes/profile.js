@@ -3,35 +3,41 @@ const Counter = require('../models/counter');
 exports.get = async function (req, res) {
     try {
 
+        let statistics = {};
+
         if(req.user != undefined)
         {
             let counters = await Counter.find({user_id: req.user._id});
 
             // получим Сумма, Среднее, Минимальное, Максимальное
-            let statistics = {
-                amount: 0,
-                average: 0,
-                min: counters[0].data,
-                max: counters[0].data
-            };
-
-            for (let i = 0; i < counters.length; i++)
+            if(counters.length > 0)
             {
-                let value = Number (counters[i].data);
-                statistics['amount'] += value;
+                statistics = {
+                    amount: 0,
+                    average: 0,
+                    min: counters[0].data,
+                    max: counters[0].data
+                };
 
-                if(value > statistics['max'])
+                for (let i = 0; i < counters.length; i++)
                 {
-                    statistics['max'] = value;
+                    let value = Number (counters[i].data);
+                    statistics['amount'] += value;
+
+                    if(value > statistics['max'])
+                    {
+                        statistics['max'] = value;
+                    }
+
+                    if(value < statistics['min'])
+                    {
+                        statistics['min'] = value;
+                    }
                 }
 
-                if(value < statistics['min'])
-                {
-                    statistics['min'] = value;
-                }
+                statistics['average'] = statistics['amount'] / counters.length;
             }
 
-            statistics['average'] = statistics['amount'] / counters.length;
 
             res.render('profile', {
                 counters: counters,

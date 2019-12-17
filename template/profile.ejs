@@ -5,6 +5,7 @@
 
         <div class="col">
 
+         <% if (Object.keys(statistics).length != 0) { %>
             <table class="table">
                 <thead>
                 <tr>
@@ -22,6 +23,7 @@
                 <td><%=statistics.max%></td>
                 </tbody>
             </table>
+        <% } %>
 
             <table class="table">
                 <thead>
