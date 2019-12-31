@@ -5,8 +5,7 @@ const bCryptPassword = require('../../functions/bcryptpassword');
 const jwt = require('jsonwebtoken');
 
 exports.post = function (req, res) {
-
-    console.log(req.body);
+    
     let email = req.body.email;
     let password = req.body.password;
     let errors = [];
