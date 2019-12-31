@@ -3,9 +3,6 @@ const Counter = require('../../models/counter');
 exports.get = async function (req, res) {
     try {
 
-        console.log(req.params.id);
-        console.log(res.userId);
-
         let counter = await Counter.findOne({ _id: req.params.id });
 
         if(req.user != undefined)
