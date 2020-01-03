@@ -1,3 +1,5 @@
+const Counter = require('../routes/counter/counter');
+
 function functionOne () {
     return '777';
 }
