@@ -91,52 +91,52 @@ router.get('/swagger.json', function (req, res) {
     res.send(swaggerSpec);
 });
 
-/**
- * @swagger
- * /api/v1/example:
- *   post:
- *     tags:
- *       - ""
- *     summary: "Example API"
- *     description: ""
- *     produces:
- *       - application/json
- *     responses:
- *       200:
- *        description: Example data
- *        examples:
- *           application/json: { "_id": "5d1bab42042e52e0444e81af", "name": "some" }
- */
-router.post('/api/v1/example', require('./api/v1/example').post);
+// /**
+//  * @swagger
+//  * /api/v1/example:
+//  *   post:
+//  *     tags:
+//  *       - ""
+//  *     summary: "Example API"
+//  *     description: ""
+//  *     produces:
+//  *       - application/json
+//  *     responses:
+//  *       200:
+//  *        description: Example data
+//  *        examples:
+//  *           application/json: { "_id": "5d1bab42042e52e0444e81af", "name": "some" }
+//  */
+//router.post('/api/v1/example', require('./api/v1/example').post);
 
-/**
- * @swagger
- * /api/v1/example-upload-file:
- *   post:
- *     tags:
- *       - ""
- *     summary: "Example upload file"
- *     description: ""
- *     produces:
- *       - form-data
- *     parameters:
- *     - name: "id"
- *       in: "form-data"
- *       description: "ID записи"
- *       required: true
- *       type: "string"
- *     - name: "file"
- *       in: "form-data"
- *       description: "Файл для загрузки"
- *       required: true
- *       type: "file"
- *     responses:
- *       200:
- *        description: Example data
- *        examples:
- *           application/json: { }
- */
-router.post('/api/v1/example-upload-file', upload.single('file'), require('./api/v1/example_upload_file').post);
+// /**
+//  * @swagger
+//  * /api/v1/example-upload-file:
+//  *   post:
+//  *     tags:
+//  *       - ""
+//  *     summary: "Example upload file"
+//  *     description: ""
+//  *     produces:
+//  *       - form-data
+//  *     parameters:
+//  *     - name: "id"
+//  *       in: "form-data"
+//  *       description: "ID записи"
+//  *       required: true
+//  *       type: "string"
+//  *     - name: "file"
+//  *       in: "form-data"
+//  *       description: "Файл для загрузки"
+//  *       required: true
+//  *       type: "file"
+//  *     responses:
+//  *       200:
+//  *        description: Example data
+//  *        examples:
+//  *           application/json: { }
+//  */
+//router.post('/api/v1/example-upload-file', upload.single('file'), require('./api/v1/example_upload_file').post);
 
     /**
      * @swagger
