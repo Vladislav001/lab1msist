@@ -24,6 +24,7 @@ class Counter {
             "message": 'Данные успешно добавлены',
             "data": req.body
         });
+        //return true;
 
     }
 

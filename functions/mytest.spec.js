@@ -4,9 +4,9 @@ describe('The webpage module', function () {
     it('saves the content', function* () {
         const resMessage = 'Данные успешно добавлены';
 
-        const result =  mytest.functionOne();
+        const result =  mytest.addCounterTest();
 
-        expect(result).to.eql('777');
+        expect(result).to.eql(true);
         // expect(result).to.eql('555');
     })
 });
